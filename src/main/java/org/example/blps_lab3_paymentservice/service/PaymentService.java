@@ -5,8 +5,6 @@ import org.example.blps_lab3_paymentservice.entity.Payment;
 import org.example.blps_lab3_paymentservice.repository.BillRepository;
 import org.hibernate.ObjectNotFoundException;
 
-import java.util.Optional;
-
 public class PaymentService {
     private BillRepository billRepository;
 
@@ -20,10 +18,9 @@ public class PaymentService {
     // Списать
     public void writeOff(Payment payment) throws Exception {
         Bill bill = billRepository.findById(payment.getBillId()).orElseThrow(() -> new ObjectNotFoundException(payment.getBillId(), "Счет"));
-        if (bill.getAccountBill() < payment.getAmount()){
+        if (bill.getAccountBill() < payment.getAmount()) {
             throw new Exception("На счете недостаточно средств");
-        }
-        else{
+        } else {
             bill.setAccountBill(bill.getAccountBill() - payment.getAmount());
             billRepository.save(bill);
         }

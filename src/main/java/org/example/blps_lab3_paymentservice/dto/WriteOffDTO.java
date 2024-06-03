@@ -10,11 +10,11 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class writeOffDTO {
+public class WriteOffDTO {
     private Long billId;
     private int amount;
 
-    public boolean check(){
-        return amount > 0;
+    public boolean check() {
+        return (billId != null && amount > 0);
     }
 }
