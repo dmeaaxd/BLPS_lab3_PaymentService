@@ -1,5 +1,6 @@
 package org.example.blps_lab3_paymentservice.service;
 
+import lombok.AllArgsConstructor;
 import org.example.blps_lab3_paymentservice.entity.Bill;
 import org.example.blps_lab3_paymentservice.entity.Payment;
 import org.example.blps_lab3_paymentservice.repository.BillRepository;
@@ -7,6 +8,7 @@ import org.hibernate.ObjectNotFoundException;
 import org.springframework.stereotype.Service;
 
 @Service
+@AllArgsConstructor
 public class PaymentService {
     private BillRepository billRepository;
 
