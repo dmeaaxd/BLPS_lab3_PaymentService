@@ -4,7 +4,9 @@ import org.example.blps_lab3_paymentservice.entity.Bill;
 import org.example.blps_lab3_paymentservice.entity.Payment;
 import org.example.blps_lab3_paymentservice.repository.BillRepository;
 import org.hibernate.ObjectNotFoundException;
+import org.springframework.stereotype.Service;
 
+@Service
 public class PaymentService {
     private BillRepository billRepository;
 
