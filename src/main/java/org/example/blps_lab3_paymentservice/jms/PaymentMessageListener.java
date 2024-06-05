@@ -1,4 +1,4 @@
-package org.example.blps_lab3_paymentservice.controller;
+package org.example.blps_lab3_paymentservice.jms;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -18,14 +18,13 @@ public class PaymentMessageListener {
 
     private final PaymentService paymentService;
 
-
-
     @JmsListener(destination = "topUpQueue")
     public void receiveTopUpMessage(TextMessage textMessage) throws Exception {
         TopUpDTO topUpDTO = convertTextMessageToObject(textMessage.getText(), TopUpDTO.class);
 
         if (topUpDTO.check()) {
             paymentService.topUp(Payment.builder()
+                    .email(topUpDTO.getEmail())
                     .billId(topUpDTO.getBillId())
                     .amount(topUpDTO.getAmount())
                     .build());
@@ -40,6 +39,7 @@ public class PaymentMessageListener {
 
         if (writeOffDTO.check()) {
             paymentService.writeOff(Payment.builder()
+                    .email(writeOffDTO.getEmail())
                     .billId(writeOffDTO.getBillId())
                     .amount(writeOffDTO.getAmount())
                     .build());

@@ -11,11 +11,16 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class TopUpDTO {
+    private String email;
     private Long billId;
     private String cardNumber;
     private int amount;
 
     public boolean check() {
+        if (email == null || email.isEmpty() || !email.contains("@")){
+            return false;
+        }
+
         if (cardNumber == null || cardNumber.length() != 16) {
             return false;
         }

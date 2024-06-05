@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Payment {
+    private String email;
     private Long billId;
     private int amount;
 }
