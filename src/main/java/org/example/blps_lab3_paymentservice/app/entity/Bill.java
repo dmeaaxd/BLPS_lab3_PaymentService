@@ -1,4 +1,4 @@
-package org.example.blps_lab3_paymentservice.entity;
+package org.example.blps_lab3_paymentservice.app.entity;
 
 
 import jakarta.persistence.Entity;

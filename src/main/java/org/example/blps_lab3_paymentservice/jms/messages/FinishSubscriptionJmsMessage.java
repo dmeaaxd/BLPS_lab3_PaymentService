@@ -1,4 +1,4 @@
-package org.example.blps_lab3_paymentservice.entity;
+package org.example.blps_lab3_paymentservice.jms.messages;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -7,10 +7,10 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
-public class Payment {
+@NoArgsConstructor
+public class FinishSubscriptionJmsMessage {
     private String email;
-    private Long billId;
-    private int amount;
+    private Long shopId;
+    private int duration;
 }

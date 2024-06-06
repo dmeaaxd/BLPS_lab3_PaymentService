@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Notification {
+public class NotificationJmsMessage {
     private String to; // Почта получателя
     private String theme; // Тема письма
     private String text; // Тело сообщения

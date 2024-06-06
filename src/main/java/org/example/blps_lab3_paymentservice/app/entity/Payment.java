@@ -1,5 +1,4 @@
-package org.example.blps_lab3_paymentservice.dto;
-
+package org.example.blps_lab3_paymentservice.app.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,12 +9,10 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class WriteOffDTO {
+public class Payment {
     private String email;
     private Long billId;
+    private Long shopId;
+    private int duration;
     private int amount;
-
-    public boolean check() {
-        return (billId != null && amount > 0) && !(email == null || email.isEmpty() || !email.contains("@"));
-    }
 }
